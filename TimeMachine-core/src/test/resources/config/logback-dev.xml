@@ -2,16 +2,19 @@
 
 <configuration scan="true">
 
-    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="stdout" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>D:/debug.log</file>
+
         <encoder charset="UTF-8">
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <root level="INFO">
+    <root level="WARN">
         <appender-ref ref="stdout"/>
     </root>
 
-    <logger name="com.xiaomo.timeMachine" level="DEBUG"/>
+    <logger name="com.xiaomo.lol" level="DEBUG"/>
 
 </configuration>
