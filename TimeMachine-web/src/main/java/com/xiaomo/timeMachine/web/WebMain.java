@@ -9,9 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
@@ -42,8 +40,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EntityScan("com.xiaomo.timeMachine.*.bean")
 @EnableTransactionManagement
 @EnableJpaRepositories("com.xiaomo.timeMachine.*.dao")
-@EnableWebSecurity
-public class WebMain extends WebMvcConfigurerAdapter {
+public class WebMain {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(WebMain.class, args);
