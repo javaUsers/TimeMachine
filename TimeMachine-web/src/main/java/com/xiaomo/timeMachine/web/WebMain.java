@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan("com.xiaomo.timeMachine")
-@EntityScan("com.xiaomo.timeMachine.*.bean")
+@EntityScan("com.xiaomo.timeMachine.*.model")
 @EnableTransactionManagement
 @EnableJpaRepositories("com.xiaomo.timeMachine.*.dao")
 public class WebMain {

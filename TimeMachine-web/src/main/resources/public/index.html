@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="framework/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<div id="myInfo">
+    <div class="panel panel-primary container">
+        <div class="panel-heading">
+            <div class="panel-title text-center">小莫后台管理系统</div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal" action="/login" role="form" method="post">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">用户名:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="请输入帐号" name="username">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">密　码:</label>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <input type="submit" class="btn btn-info" value="登录"/>
+                            <input type="button" class="btn btn-default" value="取消" onclick=""/>
+                        </div>
+                        <div class="form-group text-center">
+                            <ul class="list-unstyled">
+                                <li><a href="/qq/toLogin" class="btn btn-info">QQ登录</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            Copyright 2015 小莫版本所有
+        </div>
+    </div>
+</div>
+</body>
+</html>

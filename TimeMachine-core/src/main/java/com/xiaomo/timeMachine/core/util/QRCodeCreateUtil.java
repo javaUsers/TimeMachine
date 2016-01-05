@@ -46,8 +46,8 @@ public class QRCodeCreateUtil {
      * @param path     for example: d:/test/   支持主流图片格式
      * @param name     图片的名字 不能加后缀
      * @param contents for example 张小贤
-     * @throws IOException
-     * @throws WriterException
+     * @throws IOException IOException
+     * @throws WriterException IOException
      */
     public static void createQRCode(String path, String name, String contents) {
         try {
@@ -84,7 +84,7 @@ public class QRCodeCreateUtil {
      * @param imgPath 图片地址
      * @return string
      */
-    public static String decode(String imgPath) {
+    public static String decodeQRCode(String imgPath) {
         BufferedImage image;
         Result result;
         try {
@@ -115,6 +115,6 @@ public class QRCodeCreateUtil {
         //生成二维码
         createQRCode("D:/images/", "test", "测试测试 http://www.baidu.com");
         //解析二维码
-        decode("d:/images/20160105-test.jpg");
+        decodeQRCode("d:/images/20160105-test.jpg");
     }
 }
