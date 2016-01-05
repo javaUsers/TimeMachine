@@ -545,7 +545,7 @@ package com.xiaomo.timeMachine.core.util;//package com.xiaomo.lol.core.util;
 //
 //    /**
 //     * Replaces characters that may be confused by a HTML
-//     * parser with their equivalent character entity references.
+//     * parser with their equivalent character model references.
 //     * <p/>
 //     * Any data that will appear as text on a web page should
 //     * be be escaped.  This is especially important for data
@@ -561,7 +561,7 @@ package com.xiaomo.timeMachine.core.util;//package com.xiaomo.lol.core.util;
 //     * content on your web server.
 //     * <p/>
 //     * This method will replace HTML characters such as &gt; with their
-//     * HTML entity reference (&amp;gt;) so that the html parser will
+//     * HTML model reference (&amp;gt;) so that the html parser will
 //     * be sure to interpret them as plain text rather than HTML or script.
 //     * <p/>
 //     * This method should be used for both data to be displayed in text

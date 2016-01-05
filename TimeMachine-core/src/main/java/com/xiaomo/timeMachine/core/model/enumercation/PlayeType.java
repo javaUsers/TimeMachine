@@ -1,7 +1,4 @@
-package com.xiaomo.ManagerMain.manager.controller;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+package com.xiaomo.timeMachine.core.model.enumercation;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
@@ -21,16 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @github: https://github.com/qq83387856
  * @email: hupengbest@163.com
  * @QQ_NO: 83387856
- * @Date: 2016/1/4 20:08
+ * @Date: 15/9/6 15:27
  * @Description: ${todo}(用一句话描述该文件做什么)
  * @Copyright(©) 2015 by xiaomo.
  */
-@RestController
-@RequestMapping("/")
-public class IndexController {
+public enum PlayeType {
+    AP("AP"), AD("AD");
 
-    @RequestMapping("/")
-    public String index() {
-        return "spring boot is started!";
+    private String display;
+
+    PlayeType(String display) {
+        this.display = display;
+    }
+
+    public String getDisplay() {
+        return this.display;
     }
 }

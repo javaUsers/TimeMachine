@@ -1,6 +1,8 @@
-package com.xiaomo.timeMachine.core.entity.base;
+package com.xiaomo.timeMachine.core.model.base;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
@@ -20,18 +22,19 @@ import javax.persistence.*;
  * @github: https://github.com/qq83387856
  * @email: hupengbest@163.com
  * @QQ_NO: 83387856
- * @Date: 15/9/2 18:05
- * @Description: 自增长Id 实体父类
+ * @Date: 15/9/2 18:35
+ * @Description: 非自增长id 实体父类
  * @Copyright(©) 2015 by xiaomo.
  */
 @MappedSuperclass
-public class GenerateIdEntity {
+public class SpecifyIdEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
 
     @Version
     private long version;
+
 
     public long getId() {
         return id;

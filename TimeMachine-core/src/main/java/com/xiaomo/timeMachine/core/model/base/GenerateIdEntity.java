@@ -1,4 +1,6 @@
-package com.xiaomo.timeMachine.core.entity.enumercation;
+package com.xiaomo.timeMachine.core.model.base;
+
+import javax.persistence.*;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
@@ -18,20 +20,32 @@ package com.xiaomo.timeMachine.core.entity.enumercation;
  * @github: https://github.com/qq83387856
  * @email: hupengbest@163.com
  * @QQ_NO: 83387856
- * @Date: 15/9/6 15:27
- * @Description: ${todo}(用一句话描述该文件做什么)
+ * @Date: 15/9/2 18:05
+ * @Description: 自增长Id 实体父类
  * @Copyright(©) 2015 by xiaomo.
  */
-public enum PlayeType {
-    AP("AP"), AD("AD");
+@MappedSuperclass
+public class GenerateIdEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
 
-    private String display;
+    @Version
+    private long version;
 
-    PlayeType(String display) {
-        this.display = display;
+    public long getId() {
+        return id;
     }
 
-    public String getDisplay() {
-        return this.display;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
     }
 }

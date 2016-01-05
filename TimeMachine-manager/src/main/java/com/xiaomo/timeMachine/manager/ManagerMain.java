@@ -1,4 +1,4 @@
-package com.xiaomo.ManagerMain.manager;
+package com.xiaomo.timeMachine.manager;
 
 import com.xiaomo.timeMachine.core.factory.HttpClientFactory;
 import org.apache.http.client.HttpClient;
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
@@ -37,10 +38,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan("com.xiaomo.timeMachine")
-@EntityScan("com.xiaomo.timeMachine.*.entity")
+@EntityScan("com.xiaomo.timeMachine.*.model")
 @EnableTransactionManagement
 @EnableJpaRepositories("com.xiaomo.timeMachine.*.dao")
-public class ManagerMain {
+public class ManagerMain extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(ManagerMain.class, args);

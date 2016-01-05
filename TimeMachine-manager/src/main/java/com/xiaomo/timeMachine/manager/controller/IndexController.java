@@ -1,8 +1,7 @@
-package com.xiaomo.timeMachine.core.entity.base;
+package com.xiaomo.timeMachine.manager.controller;
 
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
@@ -22,33 +21,16 @@ import javax.persistence.Version;
  * @github: https://github.com/qq83387856
  * @email: hupengbest@163.com
  * @QQ_NO: 83387856
- * @Date: 15/9/2 18:35
- * @Description: 非自增长id 实体父类
+ * @Date: 2016/1/4 20:08
+ * @Description: ${todo}(用一句话描述该文件做什么)
  * @Copyright(©) 2015 by xiaomo.
  */
-@MappedSuperclass
-public class SpecifyIdEntity {
+@RestController
+@RequestMapping("/")
+public class IndexController {
 
-    @Id
-    protected long id;
-
-    @Version
-    private long version;
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getVersion() {
-        return version;
-    }
-
-    public void setVersion(long version) {
-        this.version = version;
+    @RequestMapping("/")
+    public String index() {
+        return "spring boot is started!";
     }
 }

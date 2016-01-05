@@ -1,4 +1,4 @@
-package com.xiaomo.timeMachine.core.entity.base;
+package com.xiaomo.timeMachine.core.model.base;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;

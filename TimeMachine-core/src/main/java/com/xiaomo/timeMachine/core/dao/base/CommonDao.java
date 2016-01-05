@@ -1,6 +1,6 @@
 package com.xiaomo.timeMachine.core.dao.base;
 
-import com.xiaomo.timeMachine.core.entity.base.BaseEntity;
+import com.xiaomo.timeMachine.core.model.base.BaseEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
