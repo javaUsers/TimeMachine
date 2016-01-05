@@ -7,15 +7,21 @@
  * @date: 2015/11/24 10:20
  * @描述：${TODO}
  **/
-$(function () {
-    $("#btnClick").bind("click", function () {
-        $.ajax({
-            url: "http://www.hpbest.com/qq/callbackLogin",
-            type: "post",
-            dateType: "json",
-            success: function (data) {
-                $("#myInfo").append("<img src='data.btnClick'>")
-            }
-        });
+$(document).ready(
+    $(function () {
+        $("#btnClick").bind("click", function () {
+            $.ajax({
+                url: "/qq/toLogin",
+                type: "get",
+                dateType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (jqXHP) {
+                    console.log(jqXHP.status);
+                }
+            });
+        })
     })
-});
+);

@@ -37,6 +37,7 @@ public class QQLoginController {
     @RequestMapping("/toLogin")
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         Oauth oauth = new Oauth();
         try {
             String url = oauth.getAuthorizeURL(request);
@@ -51,7 +52,7 @@ public class QQLoginController {
      *
      * @param request  request
      * @param response response
-     * @return
+     * @return UserInfoBean
      */
     @RequestMapping("callbackLogin")
     public UserInfoBean callbackLogin(HttpServletRequest request, HttpServletResponse response) {
