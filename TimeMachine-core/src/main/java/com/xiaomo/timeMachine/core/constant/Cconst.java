@@ -1,4 +1,4 @@
-package com.xiaomo.timeMachine.core.util;
+package com.xiaomo.timeMachine.core.constant;
 
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
