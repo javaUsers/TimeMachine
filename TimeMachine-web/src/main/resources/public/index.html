@@ -5,6 +5,8 @@
     <title>Title</title>
     <link href="framework/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <script type="application/javascript" src="framework/jquery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101271860"
+            data-redirecturi="http://www.hpbest.cn/qq/callbackLogin" charset="utf-8"></script>
     <script type="application/javascript" src="common/js/myInfo.js"></script>
 </head>
 <body>
@@ -34,6 +36,12 @@
                         <div class="form-group text-center">
                             <input type="button" class="btn btn-info" value="登录" id="btnClick"/>
                             <input type="button" class="btn btn-default" value="取消" onclick=""/>
+                            <span id="qqLoginBtn"></span>
+                            <script type="text/javascript">
+                                QC.Login({
+                                    btnId: "qqLoginBtn"    //插入按钮的节点id
+                                });
+                            </script>
                         </div>
                 </div>
             </div>
