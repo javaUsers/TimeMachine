@@ -1,4 +1,4 @@
-package com.xiaomo.timeMachine.web.controller.openLogin;
+package com.xiaomo.timeMachine.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xiaomo.timeMachine.core.api.OauthApi;
@@ -58,6 +58,8 @@ public class AuthLoginController {
     }
 
     /**
+     * QQ登录回调
+     *
      * @param response response
      * @param code     code
      * @return String url
