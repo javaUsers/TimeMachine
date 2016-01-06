@@ -31,7 +31,7 @@ public class OauthBaidu extends Oauth {
     private static final String TOKEN_URL = "https://openapi.baidu.com/oauth/2.0/token";
     private static final String USER_INFO_URL = "https://openapi.baidu.com/rest/2.0/passport/users/getInfo";
 
-    private static OauthBaidu oauthBaidu = new OauthBaidu();
+    private static OauthBaidu instance = new OauthBaidu();
 
     public OauthBaidu() {
         setClientId(OathConfig.getValue("openid_baidu"));
@@ -39,13 +39,8 @@ public class OauthBaidu extends Oauth {
         setRedirectUri(OathConfig.getValue("redirect_baidu"));
     }
 
-    /**
-     * 用于链式操作
-     *
-     * @return
-     */
-    public static OauthBaidu me() {
-        return oauthBaidu;
+    public static OauthBaidu getInstance() {
+        return instance;
     }
 
     /**

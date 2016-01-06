@@ -32,7 +32,7 @@ public class OauthOsc extends Oauth {
     private static final String USER_INFO_URL = "http://www.oschina.net/action/openapi/user"; // 用户信息
     private static final String TWEET_PUB = "http://www.oschina.net/action/openapi/tweet_pub"; // 动弹
 
-    private static OauthOsc oauthOsc = new OauthOsc();
+    private static OauthOsc instance = new OauthOsc();
 
     public OauthOsc() {
         setClientId(OathConfig.getValue("openid_osc"));
@@ -43,8 +43,8 @@ public class OauthOsc extends Oauth {
     /**
      * 用于链式操作
      */
-    public static OauthOsc me() {
-        return oauthOsc;
+    public static OauthOsc getInstance() {
+        return instance;
     }
 
     /**

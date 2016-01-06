@@ -33,7 +33,7 @@ public class OauthQQ extends Oauth {
     private static final String TOKEN_INFO_URL = "https://graph.qq.com/oauth2.0/me";
     private static final String USER_INFO_URL = "https://graph.qq.com/user/get_user_info";
 
-    private static OauthQQ oauthQQ = new OauthQQ();
+    private static OauthQQ instance = new OauthQQ();
 
     public OauthQQ() {
         setClientId(OathConfig.getValue("openid_qq"));
@@ -41,11 +41,8 @@ public class OauthQQ extends Oauth {
         setRedirectUri(OathConfig.getValue("redirect_qq"));
     }
 
-    /**
-     * 用于链式操作
-     */
-    public static OauthQQ me() {
-        return oauthQQ;
+    public static OauthQQ getInstance() {
+        return instance;
     }
 
     /**
@@ -86,7 +83,7 @@ public class OauthQQ extends Oauth {
     }
 
     /**
-     * @return 设定文件
+     * @return openid
      * @throws NoSuchProviderException
      * @throws NoSuchAlgorithmException
      * @throws KeyManagementException
@@ -124,7 +121,7 @@ public class OauthQQ extends Oauth {
     }
 
     /**
-     * @return void    返回类型
+     * @return JSONObject    返回类型
      * @throws NoSuchProviderException
      * @throws NoSuchAlgorithmException
      * @throws KeyManagementException   根据code一步获取用户信息

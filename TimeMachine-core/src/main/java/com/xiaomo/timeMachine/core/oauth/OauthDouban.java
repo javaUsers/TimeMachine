@@ -31,7 +31,7 @@ public class OauthDouban extends Oauth {
     private static final String TOKEN_URL = "https://www.douban.com/service/auth2/token";
     private static final String USER_INFO_URL = "https://api.douban.com/v2/user/~me";
 
-    private static OauthDouban oauthDouban = new OauthDouban();
+    private static OauthDouban instance = new OauthDouban();
 
     public OauthDouban() {
         setClientId(OathConfig.getValue("openid_douban"));
@@ -39,11 +39,8 @@ public class OauthDouban extends Oauth {
         setRedirectUri(OathConfig.getValue("redirect_douban"));
     }
 
-    /**
-     * 用于链式操作
-     */
-    public static OauthDouban me() {
-        return oauthDouban;
+    public static OauthDouban getInstance() {
+        return instance;
     }
 
     /**

@@ -1,5 +1,8 @@
 package com.xiaomo.timeMachine.core.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -13,13 +16,15 @@ import java.util.Properties;
  */
 public class OathConfig {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(OathConfig.class);
+
     private static Properties props = new Properties();
 
     static {
         try {
             props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("oauth.properties"));
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("没有找到配置文件[{}],请检查配置，应放于resources根目录下,具体错误信息为[{}]", "oauth.properties", e);
         }
     }
 

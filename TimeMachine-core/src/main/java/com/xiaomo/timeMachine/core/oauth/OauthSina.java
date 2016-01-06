@@ -32,7 +32,7 @@ public class OauthSina extends Oauth {
     private static final String TOKEN_INFO_URL = "https://api.weibo.com/oauth2/get_token_info";
     private static final String USER_INFO_URL = "https://api.weibo.com/2/users/show.json";
 
-    private static OauthSina oauthSina = new OauthSina();
+    private static OauthSina instance = new OauthSina();
 
     public OauthSina() {
         setClientId(OathConfig.getValue("openid_sina"));
@@ -43,8 +43,8 @@ public class OauthSina extends Oauth {
     /**
      * 用于链式操作
      */
-    public static OauthSina me() {
-        return oauthSina;
+    public static OauthSina getInstance() {
+        return instance;
     }
 
     /**

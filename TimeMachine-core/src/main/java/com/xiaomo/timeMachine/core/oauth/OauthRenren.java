@@ -28,7 +28,7 @@ public class OauthRenren extends Oauth {
     private static final String AUTH_URL = "https://graph.renren.com/oauth/authorize";
     private static final String TOKEN_URL = "https://graph.renren.com/oauth/token";
 
-    private static OauthRenren oauthRenren = new OauthRenren();
+    private static OauthRenren instance = new OauthRenren();
 
     public OauthRenren() {
         setClientId(OathConfig.getValue("openid_renren"));
@@ -39,8 +39,8 @@ public class OauthRenren extends Oauth {
     /**
      * 用于链式操作
      */
-    public static OauthRenren me() {
-        return oauthRenren;
+    public static OauthRenren getInstance() {
+        return instance;
     }
 
     /**
