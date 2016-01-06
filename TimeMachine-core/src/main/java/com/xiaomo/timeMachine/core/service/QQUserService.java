@@ -1,5 +1,7 @@
 package com.xiaomo.timeMachine.core.service;
 
+import com.xiaomo.timeMachine.core.model.QQUser;
+
 /**
  * │＼＿＿╭╭╭╭╭＿＿／│
  * │　　　　　　　　　│
@@ -22,5 +24,7 @@ package com.xiaomo.timeMachine.core.service;
  * @Description: ${todo}(用一句话描述该文件做什么)
  * @Copyright(©) 2015 by xiaomo.
  */
-public interface UserService {
+public interface QQUserService {
+
+    boolean saveUserData(QQUser userInfo);
 }

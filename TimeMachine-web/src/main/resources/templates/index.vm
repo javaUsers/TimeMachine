@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="framework/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <script type="application/javascript" src="framework/jquery/jquery-2.1.4.min.js"></script>
-    <script type="application/javascript" src="common/js/myInfo.js"></script>
+    <link href="../framework/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script type="application/javascript" src="../framework/jquery/jquery-2.1.4.min.js"></script>
+    <script type="application/javascript" src="../common/js/myInfo.js"></script>
 </head>
 <body>
 <form method="get" action="/qq/toLogin">
-<div id="myInfo">
-    <div class="panel panel-primary container">
-        <div class="panel-heading">
-            <div class="panel-title text-center">小莫后台管理系统</div>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
+    <div id="myInfo">
+        <div class="panel panel-primary container">
+            <div class="panel-heading">
+                <div class="panel-title text-center">小莫后台管理系统</div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
 
                         <div class="form-group">
                             <label class="control-label col-md-2">用户名:</label>
@@ -36,14 +36,14 @@
                             <a href="http://www.hpbest.cn/api/qq" class="btn btn-default">QQ登录</a>
                             <input type="button" class="btn btn-default" value="取消" onclick=""/>
                         </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="panel-footer text-center">
-            Copyright 2015 小莫版本所有
+            <div class="panel-footer text-center">
+                Copyright 2015 小莫版本所有
+            </div>
         </div>
     </div>
-</div>
 </form>
 </body>
 </html>

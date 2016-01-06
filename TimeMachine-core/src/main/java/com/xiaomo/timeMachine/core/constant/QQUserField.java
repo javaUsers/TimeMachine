@@ -1,8 +1,4 @@
-package com.xiaomo.timeMachine.core.model;
-
-import com.xiaomo.timeMachine.core.model.base.GenerateIdEntity;
-
-import javax.persistence.Entity;
+package com.xiaomo.timeMachine.core.constant;
 
 /**
  * 把今天最好的表现当作明天最新的起点．．～
@@ -14,11 +10,23 @@ import javax.persistence.Entity;
  * @github: https://github.com/qq83387856
  * @email: hupengbest@163.com
  * @QQ_NO: 83387856
- * @Date: 12:41 2016/1/5
- * @Description: todo
+ * @Date: 13:53 2016/1/6
+ * @Description: QQ用户信息常量
  * @Copyright(©) 2015 by xiaomo.
  */
-@Entity
-public class User extends GenerateIdEntity {
+public interface QQUserField {
 
+    String figureurl = "figureurl";
+
+    String nickname = "nickname";
+
+    String openid = "openid";
+
+    String gender = "gender";
+
+    String year = "year";
+
+    String province = "province";
+
+    String city = "city";
 }

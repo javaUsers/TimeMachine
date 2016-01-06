@@ -47,7 +47,7 @@ public class HttpKit {
         http.setReadTimeout(25000);
         http.setRequestMethod(method);
         http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        http.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36");
+        http.setRequestProperty("QQUser-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36");
         if (null != headers && !headers.isEmpty()) {
             for (Entry<String, String> entry : headers.entrySet()) {
                 http.setRequestProperty(entry.getKey(), entry.getValue());
@@ -86,7 +86,7 @@ public class HttpKit {
         http.setReadTimeout(25000);
         http.setRequestMethod(method);
         http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        http.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36");
+        http.setRequestProperty("QQUser-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36");
         if (null != headers && !headers.isEmpty()) {
             for (Entry<String, String> entry : headers.entrySet()) {
                 http.setRequestProperty(entry.getKey(), entry.getValue());

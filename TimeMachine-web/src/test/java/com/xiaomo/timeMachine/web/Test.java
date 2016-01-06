@@ -25,9 +25,8 @@ public class Test {
     public static void main(String[] args) throws Exception {
         // qq test --------------------------------- //
         System.out.println(OauthQQ.getInstance().getAuthorizeUrl(TokenUtil.randomState()));
-//		System.out.println(qq.getUserInfoByCode("2D8402D86A3AC8EB3F18B06AF89E24E9"));
+        System.out.println(OauthQQ.getInstance().getUserInfoByCode("2CBB6B6A1CC7CA163EA9BC18E900C37D&state=93p44fhvax0hovv6oo3hdyzd"));
         // {is_yellow_year_vip=0, ret=0, figureurl_qq_1=http://q.qlogo.cn/qqapp/100413274/0559BF5ED23328377FBF6305874A41E4/40, nickname=DreamLu, figureurl_qq_2=http://q.qlogo.cn/qqapp/100413274/0559BF5ED23328377FBF6305874A41E4/100, yellow_vip_level=0, is_lost=0, msg=, figureurl_1=http://qzapp.qlogo.cn/qzapp/100413274/0559BF5ED23328377FBF6305874A41E4/50, vip=0, level=0, figureurl_2=http://qzapp.qlogo.cn/qzapp/100413274/0559BF5ED23328377FBF6305874A41E4/100, gender=男, is_yellow_vip=0, openid=0559BF5ED23328377FBF6305874A41E4, figureurl=http://qzapp.qlogo.cn/qzapp/100413274/0559BF5ED23328377FBF6305874A41E4/30, access_token=DE1775C57F7057DECC532F078D6A181D}
-        // --------------------------------- //
 
         // sina test --------------------------------- //
         System.out.println(OauthSina.getInstance().getAuthorizeUrl(TokenUtil.randomState()));

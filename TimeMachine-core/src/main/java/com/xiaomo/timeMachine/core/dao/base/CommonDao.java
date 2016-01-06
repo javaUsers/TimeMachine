@@ -36,4 +36,6 @@ public class CommonDao {
         Query query = entityManager.createQuery("from " + tableClass.getSimpleName());
         return query.getResultList();
     }
+
+
 }

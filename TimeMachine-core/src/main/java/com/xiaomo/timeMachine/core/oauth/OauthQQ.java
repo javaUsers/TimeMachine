@@ -45,11 +45,13 @@ public class OauthQQ extends Oauth {
         return instance;
     }
 
+
     /**
      * 获取授权url
      * DOC：http://wiki.connect.qq.com/%E4%BD%BF%E7%94%A8authorization_code%E8%8E%B7%E5%8F%96access_token
      *
-     * @return String    返回类型
+     * @param state 一个随机数，为了安全
+     * @return 授权url
      * @throws UnsupportedEncodingException
      */
     public String getAuthorizeUrl(String state) throws UnsupportedEncodingException {
@@ -64,7 +66,9 @@ public class OauthQQ extends Oauth {
     }
 
     /**
-     * @return String    返回类型
+     * 通过code获取accessToken
+     *
+     * @return String accessToken
      * @throws NoSuchProviderException
      * @throws NoSuchAlgorithmException
      * @throws KeyManagementException   获取token
@@ -76,55 +80,33 @@ public class OauthQQ extends Oauth {
         params.put("client_secret", getClientSecret());
         params.put("grant_type", "authorization_code");
         params.put("redirect_uri", getRedirectUri());
-        // access_token=FE04************************CCE2&expires_in=7776000
-        String token = TokenUtil.getAccessToken(super.doGet(TOKEN_URL, params));
-        LOGGER.debug(token);
-        return token;
+        return TokenUtil.getAccessToken(super.doGet(TOKEN_URL, params));
     }
 
     /**
-     * @return openid
-     * @throws NoSuchProviderException
-     * @throws NoSuchAlgorithmException
-     * @throws KeyManagementException
-     * @throws IOException              获取TokenInfo
-     */
-    public String getTokenInfo(String accessToken) throws IOException, KeyManagementException, NoSuchAlgorithmException, NoSuchProviderException {
-        Map<String, String> params = new HashMap<>();
-        params.put("access_token", accessToken);
-        // callback( {"client_id":"YOUR_APPID","openid":"YOUR_OPENID"} );
-        String openid = TokenUtil.getOpenId(super.doGet(TOKEN_INFO_URL, params));
-        LOGGER.debug(openid);
-        return openid;
-    }
-
-    /**
-     * 获取用户信息
-     * DOC：http://wiki.connect.qq.com/get_user_info
+     * 通过accessToken获取openid(uid)
      *
-     * @return 设定文件
+     * @return openid
      * @throws NoSuchProviderException
      * @throws NoSuchAlgorithmException
      * @throws KeyManagementException
      * @throws IOException
      */
-    public String getUserInfo(String accessToken, String uid) throws IOException, KeyManagementException, NoSuchAlgorithmException, NoSuchProviderException {
+    public String getTokenInfo(String accessToken) throws IOException, KeyManagementException, NoSuchAlgorithmException, NoSuchProviderException {
         Map<String, String> params = new HashMap<>();
         params.put("access_token", accessToken);
-        params.put("oauth_consumer_key", getClientId());
-        params.put("openid", uid);
-        params.put("format", "json");
-        // // {"ret":0,"msg":"","nickname":"YOUR_NICK_NAME",...}
-        String userinfo = super.doGet(USER_INFO_URL, params);
-        LOGGER.debug(userinfo);
-        return userinfo;
+        String openid = TokenUtil.getOpenId(super.doGet(TOKEN_INFO_URL, params));
+        return openid;
     }
 
+
     /**
+     * 根据code一步获取用户信息
+     *
      * @return JSONObject    返回类型
      * @throws NoSuchProviderException
      * @throws NoSuchAlgorithmException
-     * @throws KeyManagementException   根据code一步获取用户信息
+     * @throws KeyManagementException
      */
     public JSONObject getUserInfoByCode(String code) throws IOException, KeyManagementException, NoSuchAlgorithmException, NoSuchProviderException {
         String accessToken = getTokenByCode(code);
@@ -138,7 +120,26 @@ public class OauthQQ extends Oauth {
         JSONObject dataMap = JSON.parseObject(getUserInfo(accessToken, openId));
         dataMap.put("openid", openId);
         dataMap.put("access_token", accessToken);
-        LOGGER.debug(dataMap);
         return dataMap;
+    }
+
+    /**
+     * 获取用户信息
+     * DOC：http://wiki.connect.qq.com/get_user_info
+     *
+     * @return 设定文件
+     * @throws NoSuchProviderException
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     * @throws IOException
+     */
+    private String getUserInfo(String accessToken, String openid) throws IOException, KeyManagementException, NoSuchAlgorithmException, NoSuchProviderException {
+        Map<String, String> params = new HashMap<>();
+        params.put("access_token", accessToken);
+        params.put("oauth_consumer_key", getClientId());
+        params.put("openid", openid);
+        params.put("format", "json");
+        String userInfo = super.doGet(USER_INFO_URL, params);
+        return userInfo;
     }
 }
