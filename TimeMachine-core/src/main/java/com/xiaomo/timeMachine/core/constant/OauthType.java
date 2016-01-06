@@ -10,11 +10,19 @@ package com.xiaomo.timeMachine.core.constant;
  * @github: https://github.com/qq83387856
  * @email: hupengbest@163.com
  * @QQ_NO: 83387856
- * @Date: 11:19 2016/1/6
- * @Description: oauth常量
+ * @Date: 14:20 2016/1/6
+ * @Description: todo
  * @Copyright(©) 2015 by xiaomo.
  */
-public interface ConstWap {
-    String RETURN_URL = "http://www.hpbest.cn/api/qq/callback";
+public enum OauthType {
+
+    qq,
+    weibo,
+    weixin,
+    github,
+    baidu,
+    gitosc,
+    renren,
+    douban
 
 }

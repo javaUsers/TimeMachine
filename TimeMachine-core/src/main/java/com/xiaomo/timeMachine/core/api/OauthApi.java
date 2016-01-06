@@ -1,9 +1,9 @@
 package com.xiaomo.timeMachine.core.api;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xiaomo.timeMachine.core.constant.OauthType;
 import com.xiaomo.timeMachine.core.constant.QQUserField;
 import com.xiaomo.timeMachine.core.model.QQUser;
-import com.xiaomo.timeMachine.core.util.IDUtil;
 
 import java.util.Date;
 
@@ -23,6 +23,12 @@ import java.util.Date;
  */
 public class OauthApi {
 
+    /**
+     * 将获取到的json数据转成用户实体类
+     *
+     * @param o json
+     * @return QQUser
+     */
     public static QQUser getQQUser(JSONObject o) {
         QQUser user = new QQUser();
         String url = o.getString(QQUserField.figureurl);
@@ -31,14 +37,14 @@ public class OauthApi {
         String gender = o.getString(QQUserField.gender);
         String year = o.getString(QQUserField.year);
         String address = o.getString(QQUserField.province) + " " + o.getString(QQUserField.city);
-        user.setCreate_time(new Date());
-        user.setHead_photo(url);
-        user.setNick_name(nickname);
+        user.setCreateTime(new Date());
+        user.setHeadPhoto(url);
+        user.setNickName(nickname);
         user.setGender(gender);
         user.setYear(year);
-        user.setOpen_id(openId);
+        user.setOpenId(openId);
+        user.setType(OauthType.qq);
         user.setAddress(address);
-        user.setUser_id(IDUtil.getId());
         return user;
     }
 }

@@ -16,7 +16,7 @@ package com.xiaomo.timeMachine.core.constant;
  */
 public interface QQUserField {
 
-    String figureurl = "figureurl";
+    String figureurl = "figureurl_qq_2";
 
     String nickname = "nickname";
 

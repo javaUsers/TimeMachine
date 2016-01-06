@@ -3,38 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="../framework/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="framework/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <script type="application/javascript" src="../framework/jquery/jquery-2.1.4.min.js"></script>
-    <script type="application/javascript" src="../common/js/myInfo.js"></script>
 </head>
 <body>
 <form method="get" action="/qq/toLogin">
     <div id="myInfo">
         <div class="panel panel-primary container">
             <div class="panel-heading">
-                <div class="panel-title text-center">小莫后台管理系统</div>
+                <div class="panel-title text-center">个人中心</div>
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12">
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">用户名:</label>
-                            <div class="col-md-10">
-                                <div>$userInfo.name</div>
-                            </div>
+                            <label class="control-label col-md-2">用户名:$user.nickName</label>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">密　码:</label>
+                            <label class="control-label col-md-2">头像</label>
                             <div class="col-md-10">
-                                <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                                <img src="$user.headPhoto" alt="">
                             </div>
-                        </div>
-
-                        <div class="form-group text-center">
-                            <a href="http://www.hpbest.cn/api/qq" class="btn btn-default">QQ登录</a>
-                            <input type="button" class="btn btn-default" value="取消" onclick=""/>
                         </div>
                     </div>
                 </div>

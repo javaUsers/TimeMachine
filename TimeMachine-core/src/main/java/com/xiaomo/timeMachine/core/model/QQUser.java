@@ -1,8 +1,11 @@
 package com.xiaomo.timeMachine.core.model;
 
+import com.xiaomo.timeMachine.core.constant.OauthType;
 import com.xiaomo.timeMachine.core.model.base.GenerateIdEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -24,17 +27,13 @@ import java.util.Date;
 @Table(name = "qq_login")
 public class QQUser extends GenerateIdEntity {
 
-    private String open_id;                      // open_id
+    private String openId;                      // open_id
 
-    private Long user_id;                      // user_id
+    private Date createTime;               // create_time
 
-    private Date create_time;               // create_time
+    private String nickName;                   // Nickname
 
-    private String nick_name;                   // Nickname
-
-    private String head_photo;               // 头像url
-
-    private String status;   // 状态 默认0,1校验通过
+    private String headPhoto;               // 头像url
 
     private String address; //省+市
 
@@ -46,53 +45,48 @@ public class QQUser extends GenerateIdEntity {
 
     private String gender;
 
-    public String getOpen_id() {
-        return open_id;
+    @Enumerated(EnumType.STRING)
+    private OauthType type;
+
+    public String getOpenId() {
+        return openId;
     }
 
-    public void setOpen_id(String open_id) {
-        this.open_id = open_id;
-    }
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
-    }
-
-    public Date getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
-    }
-
-    public String getNick_name() {
-        return nick_name;
-    }
-
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name;
-    }
-
-    public String getHead_photo() {
-        return head_photo;
-    }
-
-    public void setHead_photo(String head_photo) {
-        this.head_photo = head_photo;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
 
-    public String getStatus() {
-        return status;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getHeadPhoto() {
+        return headPhoto;
+    }
+
+    public void setHeadPhoto(String headPhoto) {
+        this.headPhoto = headPhoto;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getTel() {
@@ -111,14 +105,6 @@ public class QQUser extends GenerateIdEntity {
         this.e_mail = e_mail;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getYear() {
         return year;
     }
@@ -133,5 +119,13 @@ public class QQUser extends GenerateIdEntity {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public OauthType getType() {
+        return type;
+    }
+
+    public void setType(OauthType type) {
+        this.type = type;
     }
 }

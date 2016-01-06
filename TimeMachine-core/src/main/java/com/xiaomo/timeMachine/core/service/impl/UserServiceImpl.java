@@ -43,4 +43,9 @@ public class UserServiceImpl implements QQUserService {
             return false;
         }
     }
+
+    @Override
+    public QQUser findByOpenId(String openId) {
+        return qqUserDao.findByOpenId(openId);
+    }
 }

@@ -21,4 +21,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QQUserDao extends JpaRepository<QQUser, Long> {
 
+    QQUser findByOpenId(String openId);
+
 }

@@ -2,6 +2,7 @@ package com.xiaomo.timeMachine.web.controller.openLogin;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xiaomo.timeMachine.core.api.OauthApi;
+import com.xiaomo.timeMachine.core.constant.QQUserField;
 import com.xiaomo.timeMachine.core.model.QQUser;
 import com.xiaomo.timeMachine.core.oauth.OauthQQ;
 import com.xiaomo.timeMachine.core.service.QQUserService;
@@ -9,9 +10,11 @@ import com.xiaomo.timeMachine.core.util.TokenUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -60,21 +63,29 @@ public class AuthLoginController {
      * @return String url
      */
     @RequestMapping(value = "/qq/callback", method = RequestMethod.GET)
-    public void callbackQQ(HttpServletResponse response, String code) throws IOException {
+    public ModelAndView callbackQQ(HttpServletResponse response, Model model, String code) throws IOException {
         response.setContentType("text/html; charset=utf-8");
-        JSONObject userInfo = null;
+        JSONObject userInfo;
         try {
             userInfo = OauthQQ.getInstance().getUserInfoByCode(code);
-            QQUser qQuser = OauthApi.getQQUser(userInfo);
-            boolean saved = qqUserService.saveUserData(qQuser);
-            if (saved) {
-                LOGGER.info("新用户[{}]登录成功且己存储");
+            QQUser qQuser = OauthApi.getQQUser(userInfo); //json to entity
+            QQUser byOpenId = qqUserService.findByOpenId(userInfo.getString(QQUserField.openid));
+            if (byOpenId == null) { //新用户
+                boolean saved = qqUserService.saveUserData(qQuser);
+                if (saved) {
+                    LOGGER.info("新用户[{}]登录成功且己存储", qQuser.getNickName());
+                } else {
+                    LOGGER.error("数据库出现异常");
+                }
+                model.addAttribute("user", qQuser); //从QQ新取来的
             } else {
-                LOGGER.error("数据库出现异常");
+                LOGGER.info("老用户[{}]成功登录", qQuser.getNickName());
+                model.addAttribute("user", byOpenId); //从数据库取来的
             }
         } catch (Exception e) {
-            LOGGER.error("OauthBaidu error" + e.getMessage());
+            LOGGER.error("error  " + e.getMessage());
         }
+        return new ModelAndView("index");
     }
 
 }

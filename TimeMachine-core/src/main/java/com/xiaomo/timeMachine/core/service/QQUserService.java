@@ -27,4 +27,6 @@ import com.xiaomo.timeMachine.core.model.QQUser;
 public interface QQUserService {
 
     boolean saveUserData(QQUser userInfo);
+
+    QQUser findByOpenId(String openId);
 }
